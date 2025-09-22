@@ -17,7 +17,13 @@ class _UpiAndQrScreenState extends State<UpiAndQrScreen> {
   final String name = 'Test Payment';
   final String txnId = DateTime.now().millisecondsSinceEpoch.toString();
   final String orderId = 'ORDER123';
-  final double amount = 1;
+  int amount = 1;
+
+  @override
+  void initState() {
+    amount = widget.amount;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +45,7 @@ class _UpiAndQrScreenState extends State<UpiAndQrScreen> {
             if (!kIsWeb)
               ElevatedButton(
                 onPressed: () {
-                  final upiUrl = 'upi://pay?pa=$vpa&pn=$name&tr=$orderId&tid=$txnId&am=${widget.amount}&cu=INR';
+                  final upiUrl = 'upi://pay?pa=$vpa&pn=$name&tr=$orderId&tid=$txnId&am=$amount&cu=INR';
                   html.window.open(upiUrl, '_self');
                 },
                 child: Text("Pay"),
