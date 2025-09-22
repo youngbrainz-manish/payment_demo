@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ElevatedButton(
               onPressed: () {
                 if (kIsWeb) {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => UpiAndQrScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => UpiAndQrScreen(amount: _counter)));
                 } else if (Platform.isAndroid || Platform.isIOS) {
                   var options = {
                     'key': "rzp_test_RJpPNf4a0UPFjf",

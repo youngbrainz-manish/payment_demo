@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class UpiAndQrScreen extends StatefulWidget {
-  const UpiAndQrScreen({super.key});
+  final int amount;
+  const UpiAndQrScreen({super.key, required this.amount});
 
   @override
   State<UpiAndQrScreen> createState() => _UpiAndQrScreenState();
